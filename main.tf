@@ -38,11 +38,11 @@ resource "aws_lb_target_group_attachment" "test"{
 	
 
 resource "aws_lb" "test" {
-	depends_on = [aws_subnets.subnets1,aws_lb_target_group.example]
+	depends_on = [data.aws_subnets.subnets1,aws_lb_target_group.example]
 	name = var.lbname
 	internal = false
 	load_balancer_type = "application"
-	subnets = aws_subnets.subnets1.ids
+	subnets = data.aws_subnets.subnets1.ids
 	enable_deletion_protection = true
 		
 	tags = {
