@@ -103,6 +103,7 @@ resource "null_resource" "nl1" {
 		". venv/bin/activate",
 		"pip install Flask",
 		"sudo mkdir hello-world",
+		"sudo su"
 		"mv /home/ec2-user/app.py /home/ec2-user/hello-world/app.py",
 		"cd hello-world",
 		"export FLASK_APP=app.py",
