@@ -13,7 +13,6 @@ data "aws_subnets" "subnets1"{
 }
 data "aws_vpc" "selected"{
 	id = "vpc-04b812651542f9c33"
-	region = "ap-south-1"
 }
 
 
@@ -23,7 +22,7 @@ resource "aws_lb_target_group" "example"{
 	port = var.port
 	protocol = "HTTP"
 	target_type = "ip"
-	vpc_id = aws_vpc.selected.id
+	vpc_id = data.aws_vpc.selected.id
 
   	health_check{
 		port = 5000
