@@ -9,18 +9,21 @@ resource "aws_instance" "inst1"{
 }
 
 data "aws_subnets" "subnets1"{
-	name = "subnets1"
 	depends_on = [aws_instance.inst1]
-	vpc_id =   aws_instance.inst1.vpc_id 	
+}
+data "aws_vpc" "selected"{
+	id = "vpc-04b812651542f9c33"
+	region = "ap-south-1"
 }
 
+
+
 resource "aws_lb_target_group" "example"{
-	depends_on = [aws_subnets.subnets1]
 	name = var.tgname
 	port = var.port
 	protocol = "HTTP"
 	target_type = "ip"
-	vpc_id = aws_instance.inst1.vpc_id
+	vpc_id = aws_vpc.selected.id
 
   	health_check{
 		port = 5000
