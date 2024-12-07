@@ -1,6 +1,3 @@
-provider "aws"{
-	region "ap-south-1"
-}
 	
 resource "aws_instance" "inst1"{
 	ami = var.ami
@@ -60,7 +57,7 @@ resource "aws_lb_listener" "listener"{
 	default_action {
 		type = "forward"
 		target_group_arn = aws_lb_target_group.example.arn
-example}
+		}
 }
 
 
