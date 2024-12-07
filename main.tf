@@ -25,9 +25,10 @@ resource "aws_lb_target_group" "example"{
 	target_type = "ip"
 	vpc_id = aws_instance.inst1.vpc_id
 
-  target_health_state {
-    enable_unhealthy_connection_termination = false
-	}
+  	health_check{
+		port = 5000
+		}
+
 }
 resource "aws_lb_target_group_attachment" "test"{
 	depends_on = [aws_lb_target_group.example]
