@@ -1,5 +1,6 @@
 	
 resource "aws_instance" "inst1"{
+	id = "i-0b9a5f821a0be5a09"
 	ami = var.ami
 	instance_type = var.it
 	key_name = var.key
@@ -21,7 +22,7 @@ resource "aws_lb_target_group" "example"{
 	name = var.tgname
 	port = var.port
 	protocol = "HTTP"
-	target_type = "ip"
+	target_type = "instance"
 	vpc_id = data.aws_vpc.selected.id
 
   	health_check{
