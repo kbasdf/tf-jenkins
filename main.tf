@@ -54,7 +54,7 @@ resource "aws_lb_listener" "listener"{
 	depends_on = [aws_lb_target_group.example]
 	load_balancer_arn = aws_lb.test.arn
 	port = "5000"
-	protocol = "http"
+	protocol = "HTTP"
 	
 	default_action {
 		type = "forward"
