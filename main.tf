@@ -71,6 +71,7 @@ resource "aws_lb_listener_rule" "static"{
     		path_pattern {
       		values = ["/"]
     		}	
+		}
 	action {
 		type = "forward"
 		target_group_arn = aws_lb_target_group.example.arn
