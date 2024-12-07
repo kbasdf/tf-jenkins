@@ -1,6 +1,5 @@
 	
 resource "aws_instance" "inst1"{
-	id = "i-0b9a5f821a0be5a09"
 	ami = var.ami
 	instance_type = var.it
 	key_name = var.key
