@@ -67,6 +67,10 @@ resource "aws_lb_listener_rule" "static"{
 	depends_on = [aws_lb_listener.listener]
 	listener_arn = aws_lb_listener.listener.arn
 	priority = 100
+	  condition {
+    		path_pattern {
+      		values = ["/"]
+    		}	
 	action {
 		type = "forward"
 		target_group_arn = aws_lb_target_group.example.arn
