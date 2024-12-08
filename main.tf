@@ -100,8 +100,6 @@ resource "null_resource" "nl1" {
 		"sudo yum install -y python3",
 		"sudo yum install -y pip",
 		"pip install --upgrade pip",
-		"python3 -m venv venv",
-		". venv/bin/activate",
 		"pip install Flask",
 		"sudo mkdir hello-world",
 		"sudo su",
@@ -113,4 +111,3 @@ resource "null_resource" "nl1" {
 		]
 }
 }
-
