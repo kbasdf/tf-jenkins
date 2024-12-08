@@ -101,12 +101,6 @@ resource "null_resource" "nl1" {
 		"sudo yum install -y pip",
 		"pip install --upgrade pip",
 		"pip install Flask",
-		"sudo mkdir hello-world",
-		"sudo su",
-		"mv /home/ec2-user/app.py /home/ec2-user/hello-world/app.py",
-		"cd hello-world",
-		"export FLASK_APP=app.py",
-		"export FLASK_ENV=development",
 		"flask run --host=0.0.0.0",
 		]
 }
